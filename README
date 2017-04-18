@@ -1,0 +1,18 @@
+SVM简单的实现。目前只有二分类的功能。
+示例：
+data_ = matrix(c(runif(5, 1, 10),
+                 runif(5, 100, 110),
+                 runif(5, -20, -10),
+                 runif(5, 0, 10),
+                 runif(5, 100, 110),
+                 runif(5, -20, -10)), 
+               nrow = 15)
+y = as.vector(c(rep(1, 5), rep(-1, 5), rep(-1, 5)))
+plot(data_)
+C=0.1
+res = SMO(data_, y, C)
+alpha = res$alpha
+b = res$b
+for(i in 1:nrow(data_))
+  print(g(data_[i, ], data_, y, alpha, b, sigma=1))
+
